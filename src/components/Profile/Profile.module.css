@@ -3,7 +3,17 @@
     background-color: #9370DB;
 }
 
-.content img {
-    width: 100%;
+.user__profile {
+    display: flex;
+    justify-content: space-between;
+}
+.profile__img {
+    flex-basis: 50%;
+}
+.profile__img img {
+    width: 50%;
 }
 
+.profile__info{
+    flex-basis: 50%;
+}
