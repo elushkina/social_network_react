@@ -5,7 +5,7 @@ const Post = (props) => {
     return (
         <div className={classes.item}>
             <img
-                src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ad/addee89db9d70755893e7a919bd627fc26d7a815_full.jpg'
+                src="https://sun9-27.userapi.com/impg/YXHa3_8VKNng5XDcbmTmVXruhiSF_TUVvQmVrA/XnETy1kam0I.jpg?size=1682x1684&quality=96&sign=4dd1c9ba33a690bfc6faf8c4e71aa90c&type=album"
                 alt=''/>
             {props.message}
             <div><span>Likes </span>{props.likesCount}</div>
