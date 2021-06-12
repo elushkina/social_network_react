@@ -1,9 +1,4 @@
-.content {
-    grid-area: content;
-    background-color: #9370DB;
-}
-
-.content img {
+.profile__img {
     width: 100%;
 }
 
