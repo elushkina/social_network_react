@@ -5,3 +5,10 @@
 .posts {
     margin: 10px;
 }
+
+.post__input {
+    width: 300px;
+    margin-top: 15px;
+    padding: 10px;
+    resize: none;
+}

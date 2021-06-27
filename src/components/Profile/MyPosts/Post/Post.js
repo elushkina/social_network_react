@@ -5,9 +5,9 @@ const Post = (props) => {
     return (
         <div className={classes.item}>
             <img
-                src="https://sun9-27.userapi.com/impg/YXHa3_8VKNng5XDcbmTmVXruhiSF_TUVvQmVrA/XnETy1kam0I.jpg?size=1682x1684&quality=96&sign=4dd1c9ba33a690bfc6faf8c4e71aa90c&type=album"
+                src="https://sun9-46.userapi.com/impg/yV9lWBKKSID9Wpi92WxNaDn_edOgr9Q__ztjzw/gGFk06Zab7k.jpg?size=1231x1232&quality=96&sign=8bb8b49b577c5fc47b12bf778e42257f&type=album"
                 alt=''/>
-            {props.message}
+            <span>{props.message}</span>
             <div><span>Likes </span>{props.likesCount}</div>
         </div>
     )
