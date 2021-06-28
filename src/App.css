@@ -1,3 +1,7 @@
+body {
+  background-color: #edeef0
+}
+
 .app-wrapper {
   display: grid;
   grid-template-areas:
@@ -11,5 +15,4 @@
 
 .app-wrapper-content {
   grid-area: content;
-  background-color: #edeef0
 }

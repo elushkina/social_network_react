@@ -1,5 +1,5 @@
 .nav {
-    padding: 20px;
+    padding: 20px 5px;
     grid-area: nav;
     background-color: #edeef0
 }
@@ -12,8 +12,16 @@
 .item a {
     color: #000000;
     text-decoration: none;
+    outline: none;
+    font-size: 18px;
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+}
 
-
+.item:hover {
+    background-color: rgba(219, 220, 232, 0.85);
+    border-radius: 4px;
 }
 
 .item a.active__link {
