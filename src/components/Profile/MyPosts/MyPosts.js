@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from "./Post/Post";
 import classes from "./MyPosts.module.css"
-import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/profile-reducer';
 
 
 const MyPosts = (props) => {
@@ -19,7 +18,7 @@ const MyPosts = (props) => {
         props.updateNewPostText(text)
     }
 
-    return (
+     return (
         <div className={classes.posts__block}>
             <div>My posts</div>
             <div>
