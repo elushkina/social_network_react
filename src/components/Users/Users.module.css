@@ -1,3 +1,39 @@
 .about {
     display: flex;
+    margin: 25px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.page_numbers {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    cursor: pointer;
+}
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e1e1e1c9;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+
+}
+.selectedPage {
+    font-weight: bold;
+    background: #ffffff;
+}
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+

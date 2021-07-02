@@ -4,23 +4,44 @@ import userPhotoDefault from "../../assets/images/9jFnvrCM-fk.jpg";
 import axios from "axios";
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items)
+                this.props.setTotalUsersCount(response.data.totalCount)
+            })
+    }
 
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
             })
     }
 
-
     render() {
-        return <div>
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+        let pages = []
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i)
+        }
+
+        return <>
+            <div className={styles.page_numbers}>
+                {pages.slice(0, 10).map(p => <div
+                    className={`${styles.number} ${this.props.currentPage === p && styles.selectedPage}`}
+                    onClick={(e) => {
+                        this.onPageChanged(p)
+                    }}>{p}</div>
+                )}
+            </div>
             {
                 this.props.users.map(u => <div className={styles.about} key={u.id}>
                     <div>
                         <div>
-                            <img src={u.photos.small != null ? u.photos.small : userPhotoDefault}/>
+                            <img className={styles.image} src={u.photos.small != null ? u.photos.small : userPhotoDefault}/>
                         </div>
                         <div>
                             {u.followed
@@ -44,7 +65,7 @@ class Users extends React.Component {
                     </div>
                 </div>)
             }
-        </div>
+        </>
     }
 }
 

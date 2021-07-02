@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from "./Post/Post";
-import classes from "./MyPosts.module.css"
+import styles from "./MyPosts.module.css"
 
 
 const MyPosts = (props) => {
@@ -10,6 +10,9 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef()
 
     let onAddPost = () => {
+        if (!props.newPostText) {
+            return
+        }
         props.addPost()
     }
 
@@ -18,22 +21,24 @@ const MyPosts = (props) => {
         props.updateNewPostText(text)
     }
 
-     return (
-        <div className={classes.posts__block}>
-            <div>My posts</div>
-            <div>
+    return (
+        <div className={styles.posts__block}>
+            <div className={styles.submit_post}>
+                <span>My posts</span>
+
                 <div>
-                    <textarea className={classes.post__input}
-                                onChange={onPostChange}
+                    <textarea className={styles.post__input}
+                              onChange={onPostChange}
                               placeholder="What's new?"
                               ref={newPostElement}
                               value={props.newPostText}/>
                 </div>
-                <div>
+                <div className={styles.btn}>
                     <button onClick={onAddPost}>Add post</button>
                 </div>
+
             </div>
-            <div className={classes.posts}>
+            <div className={styles.posts}>
                 {postElement}
             </div>
 

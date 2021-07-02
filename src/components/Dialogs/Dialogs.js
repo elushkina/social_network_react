@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Dialogs.module.css';
+import styles from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 
@@ -25,11 +25,11 @@ const Dialogs = (props) => {
     }
 
     return (
-        <div className={classes.dialogs}>
-            <div className={classes.dialogs__items}>
+        <div className={styles.dialogs}>
+            <div className={styles.dialogs__items}>
                 { dialogsElements }
             </div>
-            <div className={classes.messages}>
+            <div className={styles.messages}>
                 <div> { messagesElements } </div>
                 <div>
                     <div><textarea value={newMessageBody}
