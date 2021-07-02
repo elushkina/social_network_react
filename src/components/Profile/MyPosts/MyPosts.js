@@ -24,17 +24,17 @@ const MyPosts = (props) => {
     return (
         <div className={styles.posts__block}>
             <div className={styles.submit_post}>
-                <span>My posts</span>
+                <span>Мои записи</span>
 
                 <div>
                     <textarea className={styles.post__input}
                               onChange={onPostChange}
-                              placeholder="What's new?"
+                              placeholder="Что у Вас нового?"
                               ref={newPostElement}
                               value={props.newPostText}/>
                 </div>
                 <div className={styles.btn}>
-                    <button onClick={onAddPost}>Add post</button>
+                    <button onClick={onAddPost}>Опубликовать</button>
                 </div>
 
             </div>

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+
     margin: 25px 0;
     padding: 15px;
     background: #fff;
@@ -15,4 +15,14 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+.message {
+    flex-shrink: 1;
+    margin: 0 30px;
+    line-height: 22px;
+}
+.likes {
+    flex-shrink: 0
 }
