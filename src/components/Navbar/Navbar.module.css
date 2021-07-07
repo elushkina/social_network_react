@@ -12,7 +12,6 @@
 .item a {
     color: #000000;
     text-decoration: none;
-    outline: none;
     font-size: 18px;
     margin: 0;
     display: inline-block;
@@ -27,4 +26,3 @@
 .item a.active__link {
     color: #2a5885;
 }
-

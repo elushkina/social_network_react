@@ -1,7 +1,13 @@
-import preloader from "../../../assets/images/preloader.gif";
 import React from "react";
+import styles from './Preloader.module.css'
 
 let Preloader = () => {
-    return <div><img src={preloader}/></div>
+    return <div className={styles.lds_ellipsis}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
 }
 export default Preloader
