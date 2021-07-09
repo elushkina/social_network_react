@@ -14,7 +14,6 @@ const App = (props) => {
         <div>
         <HeaderContainer/>
         <div className='app-wrapper'>
-
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
@@ -24,6 +23,5 @@ const App = (props) => {
         </div>
         </div>);
 }
-
 
 export default App;

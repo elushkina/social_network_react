@@ -11,7 +11,7 @@ let Users = (props) => {
         pages.push(i)
     }
 
-    return  <>
+    return <>
         <div className={styles.page_numbers}>
             {pages.filter((page, i) => i >= 0 && i <= 9).map(p => <div
                 className={`${styles.number} ${props.currentPage === p && styles.selectedPage}`}
@@ -24,18 +24,22 @@ let Users = (props) => {
             props.users.map(u => <div className={styles.about} key={u.id}>
                 <div>
                     <div>
-                        <NavLink to={'profile/'+ u.id}>
-                        <img className={styles.image} src={u.photos.small != null ? u.photos.small : userPhotoDefault}/>
+                        <NavLink to={'profile/' + u.id}>
+                            <img className={styles.image}
+                                 src={u.photos.small != null ? u.photos.small : userPhotoDefault}/>
                         </NavLink>
                     </div>
-                    <div>
+                    <div className={styles.btn}>
                         {u.followed
-                            ? <button onClick={() => {
-                                props.unfollow(u.id)
-                            }}>Unfollow</button>
-                            : <button onClick={() => {
-                                props.follow(u.id)
-                            }}>Follow</button>}
+                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          props.unfollow(u.id)
+                                      }}>Unfollow</button>
+
+                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          props.follow(u.id)
+                                      }}>Follow</button>}
                     </div>
                 </div>
                 <div>
