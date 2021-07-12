@@ -2,23 +2,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    margin: 15px 0;
+    margin-top: 25px;
     padding: 15px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.posts__block {
-    margin: 10px 0;
-
-}
 .submit_post span {
     margin: 10px;
     font-size: 18px;
 }
-
 
 
 .btn {
@@ -35,7 +29,4 @@
     outline: none;
     width: 100%;
     border: 1px solid #e6eaed;
-}
-.posts {
-    margin: 10px 0;
 }

@@ -22,7 +22,7 @@ const MyPosts = (props) => {
     }
 
     return (
-        <div className={styles.posts__block}>
+        <div>
             <div className={styles.submit_post}>
                 <span>Мои записи</span>
 
@@ -38,7 +38,7 @@ const MyPosts = (props) => {
                 </div>
 
             </div>
-            <div className={styles.posts}>
+            <div>
                 {postElement}
             </div>
 
