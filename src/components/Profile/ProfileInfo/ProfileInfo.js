@@ -24,7 +24,7 @@ const ProfileInfo = (props) => {
             <div className={styles.user_about}>
                 <div className={styles.page_top}>
                     <span className={styles.fullName}>Белочка Басюшковна</span>
-                    <ProfileStatus status={'hello'}/>
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 </div >
                 <div className={styles.user_information}>
                     <div>Дата рождения: 29.01.2019</div>
