@@ -35,26 +35,26 @@
 }
 
 .user_about {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
     flex-grow: 2;
     margin-top: 25px;
-    padding: 30px 40px;
+    padding: 30px 10px 20px 40px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.page_top {
+    height: 85px;
+}
 .fullName {
     font-size: 30px;
 }
+
 .no_status {
     color: #63686c;
 }
+
 .user_information {
-    flex-grow: 2;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -63,4 +63,13 @@
 
 .status {
     margin-top: 12px;
+}
+
+.status input{
+    width: 80%;
+    font-size: 13px;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #F6F6f6;
+    outline: none;
 }

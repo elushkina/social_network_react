@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import default_photo from '../../../assets/images/default_photo.png'
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -36,8 +36,8 @@ const ProfileInfo = (props) => {
             </div>
             <div className={styles.user_about}>
                 <div className={styles.page_top}>
-                    <span className={styles.fullName}>Белочка Басюшковна</span>
-                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                    <span className={styles.fullName}>{props.profile.fullName}</span>
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner}/>
                 </div>
                 <div className={styles.user_information}>
                     <div>Дата рождения: 29.01.2019</div>
