@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './Post.module.css';
+import default_photo from './../../../../assets/images/default_photo.png'
 
 const Post = (props) => {
+    const photo = props.profile.photos?.large || default_photo
     return (
         <div className={styles.item}>
             <img
-                src="https://sun9-46.userapi.com/impg/yV9lWBKKSID9Wpi92WxNaDn_edOgr9Q__ztjzw/gGFk06Zab7k.jpg?size=1231x1232&quality=96&sign=8bb8b49b577c5fc47b12bf778e42257f&type=album"
+                src={photo}
                 alt=''/>
             <div className={styles.message}>{props.message}</div>
             <div className={styles.likes}><span>Likes </span>{props.likesCount}</div>

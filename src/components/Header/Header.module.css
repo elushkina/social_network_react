@@ -1,4 +1,6 @@
 .header {
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -6,8 +8,8 @@
     right: 0;
     height: 70px;
     background-color: #ffffff;
-    display: flex;
-    align-items: center;
+    border: #edeef0 solid 1px;
+
 }
 
 .content {
@@ -30,4 +32,12 @@
 .loginBlock a {
     text-decoration: none;
     color: #000000;
+}
+.loginBlock span {
+    margin-right: 20px;
+    font-size: 18px;
+}
+.loginBlock button {
+    background: #e5ebf1;
+    color: #4c5053;
 }

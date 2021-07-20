@@ -17,7 +17,7 @@
 
 .btn {
     margin: 20px 5px 5px 5px;
-    align-self: flex-end;
+    float: right;
 
 }
 

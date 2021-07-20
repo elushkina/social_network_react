@@ -1,44 +1,61 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./Users.module.css";
-import userPhotoDefault from "../../assets/images/9jFnvrCM-fk.jpg";
+import default_photo from './../../assets/images/default_photo.png'
 import {NavLink} from "react-router-dom";
 
-let Users = (props) => {
+let Users = ({
+                 users, totalUsersCount, pageSize, currentPage,
+                 onPageChanged, followingInProgress, unfollow, follow, portionSize = 10
+             }) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pagesCount = Math.ceil(totalUsersCount / pageSize)
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
 
+    let portionCount = Math.ceil(pagesCount / portionSize)
+    let [portionNumber, setPortionNumber] = useState(1)
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
+    let rightPortionPageNumber = portionNumber * portionSize
+
     return <>
         <div className={styles.page_numbers}>
-            {pages.filter((page, i) => i >= 0 && i <= 9).map(p => <div
-                className={`${styles.number} ${props.currentPage === p && styles.selectedPage}`}
-                onClick={(e) => {
-                    props.onPageChanged(p)
-                }}>{p}</div>
-            )}
+            {portionNumber > 1 &&
+            <button onClick={() => {
+                setPortionNumber(portionNumber - 1)
+            }}>prev</button>}
+            {pages
+                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map(p => {
+                    return <div
+                        className={`${styles.number} ${currentPage === p && styles.selectedPage}`}
+                        onClick={(e) => {
+                            onPageChanged(p)
+                        }}>{p}</div>
+                })}
+            {portionCount > portionNumber &&
+            <button onClick={() => setPortionNumber(portionNumber + 1)}>next</button>}
         </div>
         {
-            props.users.map(u => <div className={styles.about} key={u.id}>
+            users.map(u => <div className={styles.about} key={u.id}>
                 <div>
                     <div>
                         <NavLink to={'profile/' + u.id}>
                             <img className={styles.image}
-                                 src={u.photos.small != null ? u.photos.small : userPhotoDefault}/>
+                                 src={u.photos.small != null ? u.photos.small : default_photo}/>
                         </NavLink>
                     </div>
                     <div className={styles.btn}>
                         {u.followed
-                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                            ? <button disabled={followingInProgress.some(id => id === u.id)}
                                       onClick={() => {
-                                          props.unfollow(u.id)
+                                          unfollow(u.id)
                                       }}>Unfollow</button>
 
-                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                            : <button disabled={followingInProgress.some(id => id === u.id)}
                                       onClick={() => {
-                                          props.follow(u.id)
+                                          follow(u.id)
                                       }}>Follow</button>}
                     </div>
                 </div>

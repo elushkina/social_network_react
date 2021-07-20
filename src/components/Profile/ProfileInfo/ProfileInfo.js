@@ -1,31 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import default_photo from '../../../assets/images/default_photo.png'
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
-
+    const [isShowPhotoInput, setIsShowPhotoInput] = useState(false)
+    const toggleFieldset = () => setIsShowPhotoInput(!isShowPhotoInput)
     if (!props.profile) {
         return <Preloader/>
+    }
+
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0])
+        }
     }
 
     return (<div className={styles.user_info}>
             <div className={styles.avatar}>
                 <div>
                     <img className={styles.profile__img}
-                        //src='https://sun9-64.userapi.com/impg/47RhNufk0KoDEYNn61hIZbUFp9ABLWFreGr7xw/GTEC0ZfUCpc.jpg?size=750x914&quality=96&sign=62e4ebe08c9f04e7b2415b19acd29ae7&type=album'
                          src={props.profile.photos.large || default_photo}
                          alt=''/>
                 </div>
-                <button>Редактировать</button>
+                {props.isOwner
+                    ? <button onClick={toggleFieldset}>
+                        {!isShowPhotoInput ? 'Редактировать' : 'Отменить'}
+                    </button>
+                    : <button>Написать сообщение</button>}
+                {isShowPhotoInput && <input type='file' onChange={onMainPhotoSelected}/>}
+
+
             </div>
             <div className={styles.user_about}>
                 <div className={styles.page_top}>
                     <span className={styles.fullName}>Белочка Басюшковна</span>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
-                </div >
+                    <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                </div>
                 <div className={styles.user_information}>
                     <div>Дата рождения: 29.01.2019</div>
                     <div>Город: Дмитров</div>

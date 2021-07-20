@@ -4,11 +4,8 @@
 }
 
 .avatar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    width: 290px;
+    height: 350px;
     margin: 25px 25px 0 0;
     padding: 20px;
     background: #fff;
@@ -24,6 +21,7 @@
     width: 100%;
     background: #e5ebf1;
     color: #4c5053;
+    margin-top: 10px;
 }
 .avatar button:hover {
     color: #63686c;
@@ -34,7 +32,6 @@
     height: 250px;
     border-radius: 5px;
     object-fit: cover;
-    margin-bottom: 20px;
 }
 
 .user_about {
